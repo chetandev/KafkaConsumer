@@ -1,3 +1,5 @@
+
+//HGH LEVEL CONSUMER 
 var consumerId = Date.now();
 console.log('consumer Id:'+consumerId);
 var Promise = require('bluebird');
