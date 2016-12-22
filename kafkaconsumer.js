@@ -10,11 +10,7 @@ var kafka = require('kafka-node'),
     consumer = new HighLevelConsumer(
         client, [
             { topic: 'textmessages' }
-        ],
-        {
-            groupId: 'nodeconsumer',
-            id:consumerId
-        }
+        ]
     );
 
 
@@ -40,6 +36,8 @@ consumer.on('error', function(err) {
 });
 
 
-
+consumer.on('offsetOutOfRange', function (err) {
+    console.log('error occured in kafka consumer offset out of range' + err);
+})
 
 
