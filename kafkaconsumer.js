@@ -1,7 +1,5 @@
 
 //HGH LEVEL CONSUMER 
-var consumerId = Date.now();
-console.log('consumer Id:'+consumerId);
 var Promise = require('bluebird');
 var cassBl = require('./cass.js');
 var kafka = require('kafka-node'),
@@ -22,7 +20,7 @@ consumer.on('message', function(message) {
     cassBl.put_in_cass(JSON.parse(message.value).messages)
         .then(function(result) {
 
-            console.log('ConsumerId: '+consumerId+'   result: '+result);
+            console.log('result: '+result);
         })
         .catch(function(err) {
             console.log('error occured while writing in cassandra:' + err)
