@@ -1,5 +1,5 @@
 var amqp = require('amqplib/callback_api');
-var cassBl = require(__base + '/cass.js');
+var cassBl = require('./cass.js');
 
 amqp.connect('amqp://test:test@172.24.1.189', function(err, conn) {
     conn.createChannel(function(err, ch) {
